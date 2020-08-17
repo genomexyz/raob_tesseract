@@ -1,0 +1,25 @@
+res_str = res_str.split('\n')
+for i in range(len(res_str)):
+	if res_str[i] == '' or res_str[i] == ' ':
+		continue
+	print('ini cek', res_str[i])
+	res_str[i] = res_str[i].split(' ')
+
+if res_str[-1] == '':
+	res_str = res_str[:-1]
+
+x1 = []
+x2 = []
+y1 = []
+y2 = []
+for i in range(len(res_str)):
+	x1.append(res_str[i][1])
+	y1.append(res_str[i][2])
+	x2.append(res_str[i][3])
+	y2.append(res_str[i][4])
+
+print(res_str)
+
+draw = ImageDraw.Draw(image_open)
+for i in range(len(x1)):
+	draw.line((x1[i],y1[i], x2[i],y2[i]) + im.size, fill='red')
